@@ -29,7 +29,7 @@ void setup(void) {
  
 void flash(int pin){
   digitalWrite(pin,HIGH);
-  delay(100);
+  delay(10);
   digitalWrite(pin,LOW);
 } 
  
@@ -38,13 +38,13 @@ void loop(void) {
   Y_reading = digitalRead(photoY);  
   G_reading = digitalRead(photoG);    
  
-  Serial.print("red reading = ");
+  /*Serial.print("red reading = ");
   Serial.print(R_reading);     // the raw analog reading
   Serial.print(", yellow reading = ");
   Serial.print(Y_reading);
   Serial.print(", green reading = ");
   Serial.print(G_reading);
-  Serial.println();
+  Serial.println();*/
  
   // We'll have a few threshholds, qualitatively determined
   /*if (photocellReading < 10) {
@@ -64,21 +64,23 @@ void loop(void) {
     //Serial.println("off");
   }else{
     //Serial.println("on");
+    Serial.print("r");
     flash(REDpin);
   }
   
   if(Y_reading == 0){
     //Serial.println("off");
   }else{
-    //Serial.println("on");
+    Serial.print("y");
     flash(YELpin);
   }
   
   if(G_reading == 0){
     //Serial.println("off");
   }else{
-    //Serial.println("on");
+    Serial.print("g");
     flash(GRNpin);
   }
+  Serial.println();
   //delay(1000);
 }
